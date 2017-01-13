@@ -1,0 +1,14 @@
+{
+  "name": "aws-lambda-s3-thumbnail",
+  "version": "0.0.1",
+  "description": "AWS Lambda thumbnail generator",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.1.4",
+    "aws-sdk": "^2.7.21",
+    "config": "^1.24.0",
+    "gm": "^1.23.0",
+    "q": "^1.4.1",
+    "request": "^2.79.0"
+  }
+}
