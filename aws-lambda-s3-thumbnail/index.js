@@ -17,9 +17,7 @@ var utils = {
   }
 };
 
-
 var s3 = new AWS.S3();
-
 
 exports.handler = function(event, context) {
   var bucket = event.Records[0].s3.bucket.name,
@@ -74,7 +72,6 @@ exports.handler = function(event, context) {
         var scalingFactor = Math.min(1, THUMB_WIDTH / size.width, THUMB_HEIGHT / size.height),
         width = scalingFactor * size.width,
         height = scalingFactor * size.height;
-
         this.resize(width, height)
         .toBuffer('jpg', function(err, buffer) {
           if(temp_file) {
@@ -108,7 +105,6 @@ exports.handler = function(event, context) {
       } else {
         console.log('Created thumbnail for '' + bucket + '/' + srcKey + ''');
       }
-
       context.done();
     }
   );
