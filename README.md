@@ -1,6 +1,6 @@
 # aws-learning
-Prototype to learn about AWS
 
+Collection of AWS codes through my training and learning.
 
 * Creae Access and Secret key on AWS: http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html
 
