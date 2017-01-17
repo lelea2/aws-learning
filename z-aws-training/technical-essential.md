@@ -88,3 +88,95 @@ Write capacity unit
 ##### 9. AWS Trusted Advisor
 * Best practice & recommendation engine
 * Cost optimization, security, fault tolerance & performance improvements
+
+
+##### 10. IAM Group policy example
+* EC2support has the capabilities to monitor and watch the status of EC2 instances
+* EC2admin has the capabilityes to scale up our server farm as needed to respond to service needs
+* S3admin can perform any function with S3 service
+
+```
+//EC2 support
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "ec2:Describe*",
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": "elasticloadbalancing:Describe*",
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "cloudwatch:ListMetrics",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:Describe*"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": "autoscaling:Describe*",
+      "Resource": "*",
+      "Effect": "Allow"
+    }
+  ]
+}
+```
+
+```
+//EC2 Admin
+{
+ "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Condition": {
+        "StringEquals": {
+          "ec2:Tenancy": "default",
+          "ec2:InstanceType": [
+            "t2.micro",
+            "m1.small"
+          ]
+        }
+      },
+      "Action": "ec2:*",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": "elasticloadbalancing:*",
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": "cloudwatch:*",
+      "Resource": "*",
+      "Effect": "Allow"
+    },
+    {
+      "Action": "autoscaling:*",
+      "Resource": "*",
+      "Effect": "Allow"
+    }
+  ]
+}
+
+```
+
+```
+//S3Admin
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "s3:*",
+      "Resource": "*",
+      "Effect": "Allow"
+    }
+  ]
+}
+```
