@@ -78,7 +78,3 @@ if __name__ == '__main__':
 # ===============================================================
 # Infections Table not found
 # Infections Table created
-
-
-
-

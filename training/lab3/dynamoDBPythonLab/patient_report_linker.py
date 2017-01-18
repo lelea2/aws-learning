@@ -28,18 +28,18 @@ def updateItemWithLink(patientId, reportUrl, tableName):
     dynamodb = utils.connect2Service('dynamodb')
     myTable = dynamodb.Table(tableName)
     try:
-        #STUDENT TODO: Update PatientReportUrl for the input PatientId 
+        #STUDENT TODO: Update PatientReportUrl for the input PatientId
         print("Updated item:")
         print("PatientId:{0}, PatientReportUrl:{1}".format(patientId, reportUrl))
-        resp = myTable.update_item(                                     
-            Key={'PatientId': str(patientId)},        
-            UpdateExpression='set PatientReportUrl=:val1',        
+        resp = myTable.update_item(
+            Key={'PatientId': str(patientId)},
+            UpdateExpression='set PatientReportUrl=:val1',
             ExpressionAttributeValues={':val1':{'S': reportUrl}})
     except Exception as err:
         print("Error Message: {0}".format(err))
 
 if __name__ == '__main__':
-    print('===============================================================') 
-    print('Lab 3 DynamoDB - Update report url for patient ids 1, 2, 3:') 
-    print('===============================================================') 
+    print('===============================================================')
+    print('Lab 3 DynamoDB - Update report url for patient ids 1, 2, 3:')
+    print('===============================================================')
     linkPatientReport()
