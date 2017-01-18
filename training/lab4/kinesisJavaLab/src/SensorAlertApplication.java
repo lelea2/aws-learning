@@ -67,10 +67,10 @@ public final class SensorAlertApplication {
         String workerId = InetAddress.getLocalHost().getCanonicalHostName() + ":" + UUID.randomUUID();
         // STUDENT TODO: Create an instance of KinesisClientLibConfiguration.
         KinesisClientLibConfiguration kinesisClientLibConfiguration =
-		new KinesisClientLibConfiguration(APPLICATION_NAME,
-			STREAM_NAME,
-			credentialsProvider,
-			workerId);
+            new KinesisClientLibConfiguration(APPLICATION_NAME,
+                STREAM_NAME,
+                credentialsProvider,
+                workerId);
         // STUDENT TODO: Using withInitialPositionInStream method of KinesisClientLibConfiguration, initialize stream position with the constant APPLICATION_INITIAL_POSITION_IN_STREAM.
         kinesisClientLibConfiguration.withInitialPositionInStream(APPLICATION_INITIAL_POSITION_IN_STREAM);
 

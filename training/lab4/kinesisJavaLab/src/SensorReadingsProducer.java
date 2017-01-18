@@ -42,21 +42,21 @@ public class SensorReadingsProducer {
 
         // STUDENT TODO: Create a FutureCallback to store the results of asynchronous call to add data to Kinesis stream.
         FutureCallback<UserRecordResult> myCallback =
-		new FutureCallback<UserRecordResult>() {
-		    @Override
-		    public void onFailure(Throwable t) {
-			System.out.println("Failed to add record to stream.");
-			t.printStackTrace();
-		    };
+            new FutureCallback<UserRecordResult>() {
+                @Override
+                public void onFailure(Throwable t) {
+                    System.out.println("Failed to add record to stream.");
+                    t.printStackTrace();
+                };
 
-		    @Override
-		    public void onSuccess(UserRecordResult result) {
-			successCounter++; 
-			if (successCounter == TOTAL_NUM_EVENTS) { 
-			    System.out.println("Number of records added records to stream. :  " + successCounter);
-			}
-		    };
-		};
+                @Override
+                public void onSuccess(UserRecordResult result) {
+                    successCounter++;
+                    if (successCounter == TOTAL_NUM_EVENTS) {
+                        System.out.println("Number of records added records to stream. :  " + successCounter);
+                    }
+                };
+            };
 
 
         for (int readingCounter = 0; readingCounter < TOTAL_NUM_EVENTS; readingCounter++) {
