@@ -1,0 +1,14 @@
+{
+  "Records": [
+    {
+      "s3": {
+        "bucket": {
+          "name": "khanh-input"
+        },
+        "object": {
+          "key": "DrugAdverseEvents_September.txt"
+        }
+      }
+    }
+  ]
+}
